@@ -1,0 +1,269 @@
+/*==== GLOBALS ===================================*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: var(--regular-font) var(--normal-font-size) var(--roboto);
+  background-color: var(--black);
+  color: var(--gray);
+}
+
+/*==== GLOBAL STYLES ==============================*/
+section {
+  text-align: center;
+}
+
+/*==== RESET ======================================*/
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+/*==== VARIABLES ===================================*/
+:root {
+  --hue: 240;
+  /*======== Colors ========*/
+  --gray: hsla(var(--hue), 9%, 89%);
+  --dark-gray: hsla(var(--hue), 7%, 78%);
+  --black: hsl(var(--hue), 5%, 7%);
+  --black-alt: hsl(var(--hue), 6%, 13%);
+
+  /*======== Font and Typography ========*/
+  --roboto: 'Roboto', sans-serif;
+
+  /*======== Font Size ========*/
+  --h2-font-size: 1.5rem;
+  --normal-font-size: 1rem;
+  --paragraph-font-size: 0.875rem;
+
+  /*======== Font Weight========*/
+  --regular-font: 400;
+  --bold-font: 700;
+}
+
+/*==== LAYOUT ==================================*/
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  padding: 11.5rem 3.563rem 10.5rem;
+}
+
+/*==== ANIMATIONS ===================================*/
+@keyframes iconSpinAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes borderGradientAnim {
+  0% {
+    border: 2px solid transparent;
+    border-image: linear-gradient(
+      0deg,
+      rgba(255, 0, 142, 1) 0%,
+      rgba(255, 205, 30, 1) 100%
+    );
+    border-image-slice: 1;
+  }
+
+  25% {
+    border: 2px solid transparent;
+    border-image: linear-gradient(
+      90deg,
+      rgba(255, 0, 142, 1) 0%,
+      rgba(255, 205, 30, 1) 100%
+    );
+    border-image-slice: 1;
+  }
+
+  50% {
+    border: 2px solid transparent;
+    border-image: linear-gradient(
+      180deg,
+      rgba(255, 0, 142, 1) 0%,
+      rgba(255, 205, 30, 1) 100%
+    );
+    border-image-slice: 1;
+  }
+
+  100% {
+    border: 2px solid transparent;
+    border-image: linear-gradient(
+      360deg,
+      rgba(255, 0, 142, 1) 0%,
+      rgba(255, 205, 30, 1) 100%
+    );
+    border-image-slice: 1;
+  }
+}
+
+/*==== RIBBON ==================================*/
+.card__effect {
+  display: none;
+}
+
+/*==== CARD ==================================*/
+.card {
+  background: url('../assets/images/card-background.svg') no-repeat center/cover;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.card .card__images {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  width: 10rem;
+  margin: 0 auto 1.5rem;
+}
+
+.card__images .card__image--build {
+  position: absolute;
+  top: -1rem;
+  z-index: 10;
+  animation: iconSpinAnim 4000ms infinite linear;
+}
+
+.card__images .card__image--picture {
+  background: url('../assets/images/profile-picture.jfif') center/contain;
+  width: 10rem;
+  height: 11.5rem;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.card__text .card__username {
+  font: var(--bold-font) var(--h2-font-size) var(--roboto);
+  margin-bottom: 0.375rem;
+}
+
+.card__text .card__github--link {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.card__github--link .github__icon {
+  position: relative;
+  top: -0.063rem;
+}
+
+.card__github--link .github__username {
+  color: var(--dark-gray);
+  transition: color 350ms ease-in;
+}
+
+.card__github--link .github__username:hover {
+  color: var(--gray);
+}
+
+.card__text .card__about {
+  font-size: var(--paragraph-font-size);
+  line-height: 1.85;
+  margin-bottom: 4rem;
+}
+
+.card__text .card__about span {
+  font-weight: var(--bold-font);
+  color: var(--dark-gray);
+}
+
+.card__social ul {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.card__social a {
+  transition: transform 400ms ease-out;
+}
+
+.card__social a:hover {
+  transform: translateY(-8%);
+}
+
+.card__social .social__icon {
+  border: 2px solid transparent;
+}
+
+.card__social .social__icon:hover {
+  animation: borderGradientAnim 1200ms infinite linear;
+}
+
+/*==== RESPONSIVE ==================================*/
+/* Breakpoint 768px*/
+@media only screen and (min-width: 48rem) {
+  /*==== LAYOUT ======================*/
+  .section {
+    padding-top: 8.75rem;
+  }
+
+  .card {
+    padding: 4.5rem 3rem 2rem;
+  }
+
+  /*==== BACKGROUND LIGHT =============*/
+  .background-light {
+    background: url('../assets/images/background-lights.png') no-repeat
+      top/90.625rem;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  /*==== RIBBON =======================*/
+  .card__effect {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+  }
+
+  .card__effect .card__ribbon img {
+    position: relative;
+    z-index: 10;
+    width: 4rem;
+  }
+
+  .card__effect .card__range img {
+    position: relative;
+    top: -0.125rem;
+    z-index: 1;
+    width: 5rem;
+  }
+
+  /*==== CARD =========================*/
+  .card {
+    position: relative;
+    background: url('../assets/images/card-background-desk.svg')
+      var(--black-alt) no-repeat;
+    width: 22.375rem;
+    height: auto;
+    min-height: 0;
+  }
+
+  .card__text .card__about {
+    margin-bottom: 2.5rem;
+  }
+}
