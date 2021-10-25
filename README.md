@@ -5,13 +5,13 @@
 <br>
 <br>
 
-<h2>🖥️ Desktop</h2>
+<h3>🖥️ Desktop</h3>
 
 <img align="center" src="./readme-files/desktop-preview.gif">
 <br>
 <br>
 
-<h2>📱 Mobile</h2>
+<h3>📱 Mobile</h3>
 <img align="center" src="./readme-files/mobile-preview.gif">
 <br>
 <br>
