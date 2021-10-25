@@ -3,7 +3,6 @@
 <img align="right" width="30%" src="./readme-files/nlwheat.svg">
 <br>
 <br>
-<br>
 
 <h3>🖥️ Desktop</h3>
 
